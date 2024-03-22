@@ -7,6 +7,6 @@ app.use(logger('dev'));
 app.use(exp.urlencoded({extended: false}));
 app.use(exp.json())
 
-app.listen(9090, ( )=>{
+app.listen(process.env.PORT, ( )=>{
     console.log("servidor en linea")
 } );

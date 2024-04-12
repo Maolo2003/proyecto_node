@@ -1,38 +1,41 @@
 const mongoose = require("../config/database");
 
+const Decimal128 = mongoose.Types.Decimal128;
+
 const schemaProducto = new mongoose.Schema({
- referencia:{
-    type: String,
-    required: true,
- },
+
  nombre:{
     type: String,
     required: true,
-    default: 'No registra',
+    
  },
+
  descripcion:{
     type: String,
-    required: [true, 'la descripcion es obligatoria']
+    required: true
 },
+
 precio:{
-    type: Number,
-    default: [0, 'El precio por defecto es cero'],
-    min: [0, 'El precio minimo es cero'],
+    type: new Decimal128(),
+    required: true
 },
 stock:{
-    type: Number,
-    default: [0, 'El stock por defecto es cero'],
-    min: [0, 'El stock por defecto es cero'],
-},
-imagen: {
     type: String,
-    required: [true, 'No existe ruta o imagen por defecto']
+    required: true
 },
-habilitado: {
-    type: Boolean,
-    default: true 
+
+fechaVencimiento: {
+    type: Date,
+    
 },
+
+categoria: {
+    type: new ObjectId(),
+    required: true
+}
+
+
 });
 
-const producto = mongoose.model("producto", schemaProducto);
-module.exports = producto;
+const Producto = mongoose.model("Producto", schemaProducto);
+module.exports = Producto;

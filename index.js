@@ -77,3 +77,31 @@ app.post('/productos/:id', async (req,res)=>{
 app.listen(process.env.PORT, ( )=>{
     console.log("servidor en linea")
 } );
+
+const nodemailer = require("nodemailer");
+// Esta función se encarga de enviar un correo electrónico por medio de nodemailer
+// recibe como parámetros el correo electrónico del usuario, el asunto y el texto del correo.
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: "andresmao606@gmail.com",
+    pass: `wvjsiudvptmvfqwl`,
+  },
+});
+
+exports.sendEmail = async (email, subject, text) => {
+  const mailOptions = {
+    from: "andresmao606@gmail.com",
+    to: email,
+    subject: subject,
+    text: "hola",
+  };
+
+  await transporter.sendMail(mailOptions, (err, info) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log("Correo enviado "+ info.response);
+    }
+  });
+};

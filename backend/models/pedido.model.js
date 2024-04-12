@@ -1,9 +1,8 @@
 const mongoose = require("../config/database");
-const Decimal128 = mongoose.Types.Decimal128;
 
 const schemaPedido = new mongoose.Schema({
     usuario:{
-        type: new ObjectId(),
+        type: String,
         required: true
     },
 
@@ -18,10 +17,10 @@ const schemaPedido = new mongoose.Schema({
     },
 
     precio: {
-        type: new Decimal128(),
+        type: Number,
         required: true
     }
 });
 
-const Pedido = moongose.model("Pedido", schemaPedido);
+const Pedido = mongoose.model("Pedido", schemaPedido);
 module.exports = Pedido;

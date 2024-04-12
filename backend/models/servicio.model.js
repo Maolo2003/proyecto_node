@@ -1,6 +1,6 @@
 const mongoose = require("../config/database");
 
-const schemaServicio = new moongose.Schema({
+const schemaServicio = new mongoose.Schema({
     nombre: {
         type: String,
         required: true
@@ -11,5 +11,5 @@ const schemaServicio = new moongose.Schema({
     } 
 });
 
-const Servicio = moongose.model("Servicio", schemaServicio);
+const Servicio = mongoose.model("Servicio", schemaServicio);
 module.exports = Servicio;

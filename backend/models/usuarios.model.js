@@ -1,6 +1,6 @@
 const mongoose = require("../config/database");
 
-const schemaUsuario = new moongose.Schema({
+const schemaUsuario = new mongoose.Schema({
     cedula: {
         type: Number,
         required: true,

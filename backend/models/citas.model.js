@@ -1,9 +1,8 @@
-const moongose = require("../config/database");
-const Decimal128 = mongoose.Types.Decimal128;
+const mongoose = require("../config/database");
 
 const schemaCita = new mongoose.Schema({
     cliente: {
-        type: ObjectId,
+        type: String,
         required: true
 
 
@@ -15,12 +14,12 @@ const schemaCita = new mongoose.Schema({
     },
 
     precio:{
-        type: Decimal128(),
+        type: Number,
         required: true
     },
 
     servicio: {
-        type: ObjectId,
+        type: String,
         required: true
     }
 

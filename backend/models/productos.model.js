@@ -1,6 +1,5 @@
 const mongoose = require("../config/database");
 
-const Decimal128 = mongoose.Types.Decimal128;
 
 const schemaProducto = new mongoose.Schema({
 
@@ -16,7 +15,7 @@ const schemaProducto = new mongoose.Schema({
 },
 
 precio:{
-    type: new Decimal128(),
+    type: Number,
     required: true
 },
 stock:{
@@ -30,7 +29,7 @@ fechaVencimiento: {
 },
 
 categoria: {
-    type: new ObjectId(),
+    type: String,
     required: true
 }
 
